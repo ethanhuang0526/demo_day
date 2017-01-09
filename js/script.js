@@ -16,7 +16,6 @@ var initEvent = function() {
     function playbtn() {
         if (playing) {
             playing = false;
-            console.log("Pause!");
             playpause.innerHTML = "▶";
         } else if (!playing) {
             playing = true;
@@ -131,6 +130,8 @@ var initData = function() {
                 // link.push(response.data[i].project_url);
                 link.push(response.data[i].slide_url);
             }
+
+            $('#data-frame').attr('src', response.data[0].slide_url);
 
             // 找出 team id 為 1 的資料
             var team = $.grep(response.data, function(item) {
